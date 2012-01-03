@@ -95,5 +95,15 @@ public class MyLibraryTest extends TestCase
     assertTrue("Book check in failed!", ml.checkIn(b1));
     assertFalse("Book was already checked in", ml.checkIn(b1));
     assertFalse("Book was never checked out!", ml.checkIn(b2));
+    
+    setup();
+    p1.setMaximumBooks(1);
+    ml.addBook(b2);
+    ml.addPerson(p1);
+    ml.addPerson(p2);
+
+    assertTrue("First book did not check out", ml.checkout(b2, p1));
+    assertFalse("Second book should not have checked out", ml.checkout(b1, p1));
+
   }
 }
