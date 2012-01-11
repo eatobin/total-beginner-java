@@ -112,7 +112,7 @@ public class MyLibraryTest extends TestCase
   public void testGetBooksForPerson()
   {
     setup();
-    p1.setMaximumBooks(2);
+    p1.setMaximumBooks(1);
     addItems();
 
     assertEquals(0, ml.getBooksForPerson(p1).size());
@@ -124,7 +124,7 @@ public class MyLibraryTest extends TestCase
 
     ml.checkout(b2, p1);
     testBooks = ml.getBooksForPerson(p1);
-    assertEquals(2, testBooks.size());
-    assertEquals(1, testBooks.indexOf(b2));
+    assertEquals(1, testBooks.size());
+    assertEquals(0, testBooks.indexOf(b1));
   }
 }
