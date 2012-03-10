@@ -97,7 +97,7 @@ public class MyLibraryTest extends TestCase
     addItems();
 
     assertTrue("First book did not check out", ml.checkout(b2, p1));
-    assertFalse("Second book should not have checked out - right Eric?", ml.checkout(b1, p1));
+    assertFalse("Second book should not have checked out - right Eric? Right!", ml.checkout(b1, p1));
 
   }
 
