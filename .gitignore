@@ -1,5 +1,5 @@
 /.DS_Store
-/.idea/
+/.idea
 /*.iml
 /*.iws
 /src/.DS_Store
@@ -10,3 +10,4 @@
 /tmp
 /.directory
 /*~
+/target
