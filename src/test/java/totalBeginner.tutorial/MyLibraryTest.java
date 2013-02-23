@@ -1,3 +1,5 @@
+// This is my comment to test git!
+
 package totalBeginner.tutorial;
 
 import junit.framework.TestCase;
@@ -19,8 +21,9 @@ public class MyLibraryTest extends TestCase
 
     assertEquals("Test Library", ml.getName());
 
-    assertTrue(ml.books instanceof ArrayList);
-    assertTrue(ml.people instanceof ArrayList);
+    // Was: assertTrue(ml.books instanceof ArrayList)
+    assertTrue(ml.books != null);
+    assertTrue(ml.people != null);
   }
 
   public void setup()
