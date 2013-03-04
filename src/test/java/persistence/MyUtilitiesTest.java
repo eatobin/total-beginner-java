@@ -15,126 +15,127 @@ import static org.junit.Assert.*;
  */
 public class MyUtilitiesTest
 {
-	@Test
-	public void saveStringToFile()
-	{
-		String saveString = "this is test line one\n" +
-				"this is test line two\n";
+  @Test
+  public void saveStringToFile()
+  {
+    //String saveString = "this is test line one\n" +
+    //"this is test line two\n";
+    String saveString = "this is test line one\nthis is test line two\n";
 
-		File testFile = new File("testsavetostring.txt");
+    File testFile = new File("testsavetostring.txt");
 
-		//noinspection ResultOfMethodCallIgnored
-		testFile.delete();
+    //noinspection ResultOfMethodCallIgnored
+    testFile.delete();
 
-		assertFalse("File should not exist",
-				testFile.exists());
+    assertFalse("File should not exist",
+                testFile.exists());
 
-		assertTrue("File should have been saved",
-				MyUtilities.saveStringToFile("testsavestring.txt",
-						saveString));
+    assertTrue("File should have been saved",
+               MyUtilities.saveStringToFile("testsavestring.txt",
+                                            saveString));
 
-		String newString = MyUtilities.getStringFromFile("testsavestring.txt");
+    String newString = MyUtilities.getStringFromFile("testsavestring.txt");
 
-		assertTrue("Save and get strings should be equal",
-				saveString.equals(newString));
+    assertTrue("Save and get strings should be equal",
+               saveString.equals(newString));
 
-		assertFalse("File should not be saved",
-				MyUtilities.saveStringToFile("non-existent directory/thisshouldfail.txt",
-						saveString));
+    assertFalse("File should not be saved",
+                MyUtilities.saveStringToFile("non-existent directory/thisshouldfail.txt",
+                                             saveString));
 
-		String emptyString = MyUtilities.getStringFromFile(
-				"badfilename.txt");
+    String emptyString = MyUtilities.getStringFromFile(
+        "badfilename.txt");
 
-		assertTrue("String should be empty",
-				emptyString.length() == 0);
-	}
+    assertTrue("String should be empty",
+               emptyString.length() == 0);
+  }
 
-	public MyLibrary createMyLibrary()
-	{
-		Book b1;
-		Book b2;
-		Person p1;
-		Person p2;
-		MyLibrary ml;
+  public MyLibrary createMyLibrary()
+  {
+    Book b1;
+    Book b2;
+    Person p1;
+    Person p2;
+    MyLibrary ml;
 
-		b1 = new Book("Book1");
-		b2 = new Book("Book2");
+    b1 = new Book("Book1");
+    b2 = new Book("Book2");
 
-		p1 = new Person();
-		p2 = new Person();
-		p1.setName("Fred");
-		p2.setName("Sue");
+    p1 = new Person();
+    p2 = new Person();
+    p1.setName("Fred");
+    p2.setName("Sue");
 
-		ml = new MyLibrary("Test");
+    ml = new MyLibrary("Test");
 
-		ml.addBook(b1);
-		ml.addBook(b2);
-		ml.addPerson(p1);
-		ml.addPerson(p2);
-		ml.checkOut(b1, p1);
+    ml.addBook(b1);
+    ml.addBook(b2);
+    ml.addPerson(p1);
+    ml.addPerson(p2);
+    ml.checkOut(b1, p1);
 
-		return ml;
-	}
+    return ml;
+  }
 
-	@Test
-	public void convertToXML()
-	{
-		MyLibrary startMyLibrary = createMyLibrary();
-		String testXMLOut = MyUtilities.convertToXML(startMyLibrary);
+  @Test
+  public void convertToXML()
+  {
+    MyLibrary startMyLibrary = createMyLibrary();
+    String testXMLOut = MyUtilities.convertToXML(startMyLibrary);
 
-		MyLibrary endMyLibrary = MyUtilities.convertFromXML(testXMLOut);
+    MyLibrary endMyLibrary = MyUtilities.convertFromXML(testXMLOut);
 
-		assertEquals("Test", endMyLibrary.getName());
-		assertEquals(2, endMyLibrary.getBooks().size());
-		assertEquals(2, endMyLibrary.getPeople().size());
-		assertEquals("Fred", endMyLibrary.getBooks().get(0).getPerson().getName());
-	}
+    assertEquals("Test", endMyLibrary.getName());
+    assertEquals(2, endMyLibrary.getBooks().size());
+    assertEquals(2, endMyLibrary.getPeople().size());
+    assertEquals("Fred", endMyLibrary.getBooks().get(0).getPerson().getName());
+  }
 
-	@Test
-	public void saveToXMLFile()
-	{
-		MyLibrary startMyLibrary = createMyLibrary();
-		String fileName = "testmylibrary.xml";
-		File testFile = new File(fileName);
+  @Test
+  public void saveToXMLFile()
+  {
+    MyLibrary startMyLibrary = createMyLibrary();
+    String fileName = "testmylibrary.xml";
+    File testFile = new File(fileName);
 
-		//noinspection ResultOfMethodCallIgnored
-		testFile.delete();
+    //noinspection ResultOfMethodCallIgnored
+    testFile.delete();
 
-		assertFalse("File should NOT exist",
-				testFile.exists());
-		assertTrue("File should have been saved",
-				MyUtilities.saveMyLibraryToXMLFile(
-						fileName, startMyLibrary));
+    assertFalse("File should NOT exist",
+                testFile.exists());
+    assertTrue("File should have been saved",
+               MyUtilities.saveMyLibraryToXMLFile(
+                   fileName, startMyLibrary));
 
-		MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromXMLFile(fileName);
+    MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromXMLFile(fileName);
 
-		assertEquals("Test", endMyLibrary.getName());
-		assertEquals(2, endMyLibrary.getBooks().size());
-		assertEquals(2, endMyLibrary.getPeople().size());
-		assertEquals("Fred", endMyLibrary.getBooks().get(0).getPerson().getName());
-	}
+    assertEquals("Test", endMyLibrary.getName());
+    assertEquals(2, endMyLibrary.getBooks().size());
+    assertEquals(2, endMyLibrary.getPeople().size());
+    assertEquals("Fred", endMyLibrary.getBooks().get(0).getPerson().getName());
+  }
 
-	@Test
-	public void saveToSerialFile()
-	{
-		MyLibrary startMyLibrary = createMyLibrary();
-		String fileName = "testmylibrary.ser";
-		File testFile = new File(fileName);
+  @Test
+  public void saveToSerialFile()
+  {
+    MyLibrary startMyLibrary = createMyLibrary();
+    String fileName = "testmylibrary.ser";
+    File testFile = new File(fileName);
 
-		//noinspection ResultOfMethodCallIgnored
-		testFile.delete();
+    //noinspection ResultOfMethodCallIgnored
+    testFile.delete();
 
-		assertFalse("File should NOT exist",
-				testFile.exists());
-		assertTrue("File should have been saved",
-				MyUtilities.saveMyLibraryToSerialFile(
-						fileName, startMyLibrary));
+    assertFalse("File should NOT exist",
+                testFile.exists());
+    assertTrue("File should have been saved",
+               MyUtilities.saveMyLibraryToSerialFile(
+                   fileName, startMyLibrary));
 
-		MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromSerialFile(fileName);
+    MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromSerialFile(fileName);
 
-		assertEquals("Test", endMyLibrary.getName());
-		assertEquals(2, endMyLibrary.getBooks().size());
-		assertEquals(2, endMyLibrary.getPeople().size());
-		assertEquals("Fred", endMyLibrary.getBooks().get(0).getPerson().getName());
-	}
+    assertEquals("Test", endMyLibrary.getName());
+    assertEquals(2, endMyLibrary.getBooks().size());
+    assertEquals(2, endMyLibrary.getPeople().size());
+    assertEquals("Fred", endMyLibrary.getBooks().get(0).getPerson().getName());
+  }
 }
