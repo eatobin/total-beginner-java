@@ -140,22 +140,22 @@ public class MyLibrary {
     }
 
     private void printStatus() {
-        System.out.println("Status Report of MyLibrary \n" +
-                this.toString());
+        StringBuilder sb = new StringBuilder("--- Status Report of MyLibrary ---\n" +
+                this.toString() + "\n");
 
         for (Book thisBook : this.getBooks()) {
-            System.out.println(thisBook);
+            sb.append(thisBook).append("\n");
+            //System.out.println(thisBook);
         }
 
         for (Person p : this.getPeople()) {
             int count = this.getBooksForPerson(p).size();
-            System.out.println(p + " (has " + count
-                    + " of my books)");
+            sb.append(p).append(" (has ").append(count).append(" of my books)\n");
         }
 
-        System.out.println("Books available: "
-                + this.getAvailableBooks().size());
+        sb.append("Books available: ").append(this.getAvailableBooks().size()).append("\n");
 
-        System.out.println("--- End of Status Report ---");
+        sb.append("--- End of Status Report ---");
+        System.out.println(sb.toString());
     }
 }
