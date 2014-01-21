@@ -10,60 +10,48 @@ import java.io.Serializable;
  */
 
 @SuppressWarnings({"SerializableHasSerializationMethods"})
-public class Book implements Serializable
-{
-  String title;
-  String author;
-  Person person;
-  private static final long serialVersionUID = -1722088991362527290L;
+public class Book implements Serializable {
+    String title;
+    String author;
+    Person person;
+    private static final long serialVersionUID = -1722088991362527290L;
 
-  public Book(String string)
-  {
-    this.title = string;
-    this.author = "unknown author";
-  }
-
-  public String getAuthor()
-  {
-    return author;
-  }
-
-  public void setAuthor(String author)
-  {
-    this.author = author;
-  }
-
-  public String getTitle()
-  {
-    return title;
-  }
-
-  public void setPerson(Person p2)
-  {
-    this.person = p2;
-  }
-
-  public Person getPerson()
-  {
-    return this.person;
-  }
-
-  public String toString()
-  {
-    String available;
-
-    if (this.getPerson() == null)
-    {
-      available = "Available";
+    public Book(String string) {
+        this.title = string;
+        this.author = "unknown author";
     }
 
-    else
-    {
-      available = "Checked out to " +
-                  this.getPerson().getName();
+    public String getAuthor() {
+        return author;
     }
 
-    return this.getTitle() + " by " + this.getAuthor() +
-           "; " + available;
-  }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setPerson(Person p2) {
+        this.person = p2;
+    }
+
+    public Person getPerson() {
+        return this.person;
+    }
+
+    public String toString() {
+        String available;
+
+        if (this.getPerson() == null) {
+            available = "Available";
+        } else {
+            available = "Checked out to " +
+                    this.getPerson().getName();
+        }
+
+        return this.getTitle() + " by " + this.getAuthor() +
+                "; " + available;
+    }
 }
