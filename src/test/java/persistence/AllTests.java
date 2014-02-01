@@ -1,7 +1,7 @@
 package persistence;
 
-import org.junit.runner.*;
-import org.junit.runners.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 /**
  * Created by IntelliJ IDEA. And Eric.
@@ -11,13 +11,12 @@ import org.junit.runners.*;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses(value = {
-		PersonTest.class,
-		BookTest.class,
-		MyLibraryTest.class,
-		MyUtilitiesTest.class
+        PersonTest.class,
+        BookTest.class,
+        MyLibraryTest.class,
+        MyUtilitiesTest.class
 })
 
-public class AllTests
-{
+public class AllTests {
 
 }
