@@ -98,7 +98,8 @@ public class MyUtilities {
         try {
             ObjectOutputStream oos = new ObjectOutputStream(
                     new BufferedOutputStream(
-                            new FileOutputStream(fileName)));
+                            new FileOutputStream(fileName))
+            );
 
             // Inner try block
 
@@ -121,7 +122,8 @@ public class MyUtilities {
         try {
             ObjectInputStream ois = new ObjectInputStream(
                     new BufferedInputStream(
-                            new FileInputStream(fileName)));
+                            new FileInputStream(fileName))
+            );
             try {
                 Object obj = ois.readObject();
 
