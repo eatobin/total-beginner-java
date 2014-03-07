@@ -30,7 +30,8 @@ public class MyUtilitiesTest {
 
         assertTrue("File should have been saved",
                 MyUtilities.saveStringToFile("testsavestring.txt",
-                        saveString));
+                        saveString)
+        );
 
         String newString = MyUtilities.getStringFromFile("testsavestring.txt");
 
@@ -39,7 +40,8 @@ public class MyUtilitiesTest {
 
         assertFalse("File should not be saved",
                 MyUtilities.saveStringToFile("non-existent directory/thisshouldfail.txt",
-                        saveString));
+                        saveString)
+        );
 
         String emptyString = MyUtilities.getStringFromFile(
                 "badfilename.txt");
@@ -100,7 +102,8 @@ public class MyUtilitiesTest {
                 testFile.exists());
         assertTrue("File should have been saved",
                 MyUtilities.saveMyLibraryToXMLFile(
-                        fileName, startMyLibrary));
+                        fileName, startMyLibrary)
+        );
 
         MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromXMLFile(fileName);
 
@@ -123,7 +126,8 @@ public class MyUtilitiesTest {
                 testFile.exists());
         assertTrue("File should have been saved",
                 MyUtilities.saveMyLibraryToSerialFile(
-                        fileName, startMyLibrary));
+                        fileName, startMyLibrary)
+        );
 
         MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromSerialFile(fileName);
 
