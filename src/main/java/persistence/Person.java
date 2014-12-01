@@ -2,13 +2,6 @@ package persistence;
 
 import java.io.Serializable;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Eric
- * Date: Jun 9, 2010
- * Time: 3:34:49 PM
- */
-@SuppressWarnings({"SerializableHasSerializationMethods"})
 public class Person implements Serializable {
     // Fields
 

@@ -2,14 +2,6 @@ package persistence;
 
 import java.io.Serializable;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eric
- * Date: Jun 9, 2010
- * Time: 3:34:49 PM
- */
-
-@SuppressWarnings({"SerializableHasSerializationMethods"})
 public class Book implements Serializable {
     String title;
     String author;

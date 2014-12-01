@@ -5,12 +5,6 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import java.io.*;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eric
- * Date: Jun 17, 2010
- * Time: 7:29:03 PM
- */
 public class MyUtilities {
     public static boolean saveStringToFile(String fileName,
                                            String saveString) {
