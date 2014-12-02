@@ -40,9 +40,8 @@ public class MyUtilities {
             try {
                 String s;
                 while ((s = br.readLine()) != null) {
-                    // Add back linefeed since stripped by readLine()
-
                     sb.append(s);
+                    // Add back linefeed since stripped by readLine()
                     sb.append("\n");
                 }
             } finally {
