@@ -6,44 +6,27 @@ import java.io.File;
 
 import static org.junit.Assert.*;
 
-
-/**
- * Created with IntelliJ IDEA.
- * User: Eric
- * Date: Jun 17, 2010
- * Time: 7:30:31 PM
- */
 public class MyUtilitiesTest {
     @Test
     public void saveStringToFile() {
-        //String saveString = "this is test line one\n" +
-        //"this is test line two\n";
         String saveString = "this is test line one\nthis is test line two\n";
-
-        File testFile = new File("testsavetostring.txt");
-
-        //noinspection ResultOfMethodCallIgnored
-        testFile.delete();
-
+        File testFile = new File("not_a_file.txt");
+        assertFalse(testFile.delete());
         assertFalse("File should not exist",
                 testFile.exists());
-
         assertTrue("File should have been saved",
                 MyUtilities.saveStringToFile("testsavestring.txt",
-                        saveString));
-
+                        saveString)
+        );
         String newString = MyUtilities.getStringFromFile("testsavestring.txt");
-
         assertTrue("Save and get strings should be equal",
                 saveString.equals(newString));
-
         assertFalse("File should not be saved",
                 MyUtilities.saveStringToFile("non-existent directory/thisshouldfail.txt",
-                        saveString));
-
+                        saveString)
+        );
         String emptyString = MyUtilities.getStringFromFile(
                 "badfilename.txt");
-
         assertTrue("String should be empty",
                 emptyString.length() == 0);
     }
@@ -92,18 +75,14 @@ public class MyUtilitiesTest {
         MyLibrary startMyLibrary = createMyLibrary();
         String fileName = "testmylibrary.xml";
         File testFile = new File(fileName);
-
-        //noinspection ResultOfMethodCallIgnored
-        testFile.delete();
-
+        assertTrue(testFile.delete());
         assertFalse("File should NOT exist",
                 testFile.exists());
         assertTrue("File should have been saved",
                 MyUtilities.saveMyLibraryToXMLFile(
-                        fileName, startMyLibrary));
-
+                        fileName, startMyLibrary)
+        );
         MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromXMLFile(fileName);
-
         assertEquals("Test", endMyLibrary.getName());
         assertEquals(2, endMyLibrary.getBooks().size());
         assertEquals(2, endMyLibrary.getPeople().size());
@@ -115,18 +94,14 @@ public class MyUtilitiesTest {
         MyLibrary startMyLibrary = createMyLibrary();
         String fileName = "testmylibrary.ser";
         File testFile = new File(fileName);
-
-        //noinspection ResultOfMethodCallIgnored
-        testFile.delete();
-
+        assertTrue(testFile.delete());
         assertFalse("File should NOT exist",
                 testFile.exists());
         assertTrue("File should have been saved",
                 MyUtilities.saveMyLibraryToSerialFile(
-                        fileName, startMyLibrary));
-
+                        fileName, startMyLibrary)
+        );
         MyLibrary endMyLibrary = MyUtilities.getMyLibraryFromSerialFile(fileName);
-
         assertEquals("Test", endMyLibrary.getName());
         assertEquals(2, endMyLibrary.getBooks().size());
         assertEquals(2, endMyLibrary.getPeople().size());

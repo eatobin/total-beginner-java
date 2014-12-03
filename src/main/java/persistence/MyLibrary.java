@@ -3,13 +3,6 @@ package persistence;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eric
- * Date: Jun 12, 2010
- * Time: 11:50:17 AM
- */
-@SuppressWarnings({"SerializableHasSerializationMethods"})
 public class MyLibrary implements Serializable {
     String name;
     ArrayList<Book> books;

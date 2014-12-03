@@ -5,12 +5,6 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import java.io.*;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eric
- * Date: Jun 17, 2010
- * Time: 7:29:03 PM
- */
 public class MyUtilities {
     public static boolean saveStringToFile(String fileName,
                                            String saveString) {
@@ -46,9 +40,8 @@ public class MyUtilities {
             try {
                 String s;
                 while ((s = br.readLine()) != null) {
-                    // Add back linefeed since stripped by readLine()
-
                     sb.append(s);
+                    // Add back linefeed since stripped by readLine()
                     sb.append("\n");
                 }
             } finally {
@@ -98,7 +91,8 @@ public class MyUtilities {
         try {
             ObjectOutputStream oos = new ObjectOutputStream(
                     new BufferedOutputStream(
-                            new FileOutputStream(fileName)));
+                            new FileOutputStream(fileName))
+            );
 
             // Inner try block
 
@@ -121,7 +115,8 @@ public class MyUtilities {
         try {
             ObjectInputStream ois = new ObjectInputStream(
                     new BufferedInputStream(
-                            new FileInputStream(fileName)));
+                            new FileInputStream(fileName))
+            );
             try {
                 Object obj = ois.readObject();
 
