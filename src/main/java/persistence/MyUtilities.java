@@ -57,9 +57,9 @@ public class MyUtilities {
     public static String convertToXML(MyLibrary ml) {
         XStream xstream = new XStream(new DomDriver());
         xstream.setMode(XStream.ID_REFERENCES);
-        xstream.alias("person", Person.class);
-        xstream.alias("book", Book.class);
-        xstream.alias("mylibrary", MyLibrary.class);
+        xstream.alias("Person", Person.class);
+        xstream.alias("Book", Book.class);
+        xstream.alias("MyLibrary", MyLibrary.class);
         return xstream.toXML(ml);
     }
 
@@ -67,9 +67,9 @@ public class MyUtilities {
         MyLibrary ml = null;
         XStream xstream = new XStream(new DomDriver());
         xstream.setMode(XStream.ID_REFERENCES);
-        xstream.alias("person", Person.class);
-        xstream.alias("book", Book.class);
-        xstream.alias("mylibrary", MyLibrary.class);
+        xstream.alias("Person", Person.class);
+        xstream.alias("Book", Book.class);
+        xstream.alias("MyLibrary", MyLibrary.class);
         Object obj = xstream.fromXML(XMLString);
         if (obj instanceof MyLibrary) {
             ml = (MyLibrary) obj;
