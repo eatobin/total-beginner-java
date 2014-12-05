@@ -63,6 +63,15 @@ public class MyUtilities {
         return xstream.toXML(ml);
     }
 
+    public static String convertToXML(Roster roster) {
+        XStream xstream = new XStream(new DomDriver());
+        xstream.setMode(XStream.ID_REFERENCES);
+//        xstream.alias("Person", Person.class);
+//        xstream.alias("Player", Roster.Player.class);
+//        xstream.alias("Roster", Roster.class);
+        return xstream.toXML(roster);
+    }
+
     public static MyLibrary convertFromXML(String XMLString) {
         MyLibrary ml = null;
         XStream xstream = new XStream(new DomDriver());
@@ -80,6 +89,10 @@ public class MyUtilities {
 
     public static boolean saveMyLibraryToXMLFile(String fileName, MyLibrary ml) {
         return saveStringToFile(fileName, convertToXML(ml));
+    }
+
+    public static boolean saveRosterToXMLFile(String fileName, Roster roster) {
+        return saveStringToFile(fileName, convertToXML(roster));
     }
 
     public static MyLibrary getMyLibraryFromXMLFile(String fileName) {

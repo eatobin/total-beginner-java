@@ -139,6 +139,9 @@ public class MyLibrary implements Serializable {
         MyLibrary newMyLibrary = MyUtilities.getMyLibraryFromXMLFile("testmain.xml");
         System.out.println("Printing information from saved xml file.");
         newMyLibrary.printStatus();
+
+        Roster blackhawks2010 = new Roster("Blackhawks", 2010);
+        MyUtilities.saveRosterToXMLFile("roster.xml", blackhawks2010);
     }
 
     private void printStatus() {
