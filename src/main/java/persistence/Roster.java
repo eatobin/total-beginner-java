@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
-class Roster {
+public class Roster {
     private final String teamName;
     private final int firstYear;
     // use a TreeMap to order rosterList alphabetically by key
