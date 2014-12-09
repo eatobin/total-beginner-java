@@ -1,24 +1,24 @@
-<mylibrary id="1">
+<MyLibrary id="1">
     <name>Test Drive Library</name>
     <books id="2">
-        <book id="3">
+        <Book id="3">
             <title>War And Peace</title>
             <author>Tolstoy</author>
-        </book>
-        <book id="4">
+        </Book>
+        <Book id="4">
             <title>Great Expectations</title>
             <author>Dickens</author>
             <person id="5">
                 <name>Jim</name>
                 <maximumBooks>3</maximumBooks>
             </person>
-        </book>
+        </Book>
     </books>
     <people id="6">
-        <person reference="5"/>
-        <person id="7">
+        <Person reference="5"/>
+        <Person id="7">
             <name>Sue</name>
             <maximumBooks>3</maximumBooks>
-        </person>
+        </Person>
     </people>
-</mylibrary>
+</MyLibrary>
