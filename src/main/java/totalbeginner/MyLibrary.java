@@ -1,6 +1,7 @@
 package totalbeginner;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -65,17 +66,9 @@ public class MyLibrary {
     }
 
     ArrayList<Book> getBooksForPerson(Person p1) {
-        ArrayList<Book> result = new ArrayList<>();
-
-        for (Book aBook : this.getBooks()) {
-            if ((aBook.getPerson() != null) &&
-                    (aBook.getPerson().getName()
-                            .equals(p1.getName()))) {
-                result.add(aBook);
-            }
-        }
-
-        return result;
+        return this.getBooks().stream().filter(aBook -> (aBook.getPerson() != null) &&
+                (aBook.getPerson().getName()
+                        .equals(p1.getName()))).collect(Collectors.toCollection(ArrayList::new));
     }
 
     ArrayList<Book> getAvailableBooks() {
