@@ -13,10 +13,10 @@ public class MyLibrary {
     ArrayList<Book> books;
     ArrayList<Person> people;
 
-    public MyLibrary(String name) {
+    MyLibrary(String name) {
         this.name = name;
-        books = new ArrayList<Book>();
-        people = new ArrayList<Person>();
+        books = new ArrayList<>();
+        people = new ArrayList<>();
     }
 
     public String getName() {
@@ -27,23 +27,23 @@ public class MyLibrary {
         return books;
     }
 
-    public ArrayList<Person> getPeople() {
+    private ArrayList<Person> getPeople() {
         return people;
     }
 
-    public void addBook(Book b1) {
+    void addBook(Book b1) {
         this.books.add(b1);
     }
 
-    public void removeBook(Book b1) {
+    void removeBook(Book b1) {
         this.books.remove(b1);
     }
 
-    public void addPerson(Person p1) {
+    void addPerson(Person p1) {
         this.people.add(p1);
     }
 
-    public boolean checkOut(Book b1, Person p1) {
+    boolean checkOut(Book b1, Person p1) {
         int booksOut = this.getBooksForPerson(p1).size();
 
         if ((b1.getPerson() == null) &&
@@ -55,7 +55,7 @@ public class MyLibrary {
         }
     }
 
-    public boolean checkIn(Book b1) {
+    boolean checkIn(Book b1) {
         if (b1.getPerson() != null) {
             b1.setPerson(null);
             return true;
@@ -64,8 +64,8 @@ public class MyLibrary {
         }
     }
 
-    public ArrayList<Book> getBooksForPerson(Person p1) {
-        ArrayList<Book> result = new ArrayList<Book>();
+    ArrayList<Book> getBooksForPerson(Person p1) {
+        ArrayList<Book> result = new ArrayList<>();
 
         for (Book aBook : this.getBooks()) {
             if ((aBook.getPerson() != null) &&
@@ -78,8 +78,8 @@ public class MyLibrary {
         return result;
     }
 
-    public ArrayList<Book> getAvailableBooks() {
-        ArrayList<Book> result = new ArrayList<Book>();
+    ArrayList<Book> getAvailableBooks() {
+        ArrayList<Book> result = new ArrayList<>();
 
         for (Book aBook : this.getBooks()) {
             if (aBook.getPerson() == null) {
@@ -90,8 +90,8 @@ public class MyLibrary {
         return result;
     }
 
-    public ArrayList<Book> getUnavailableBooks() {
-        ArrayList<Book> result = new ArrayList<Book>();
+    ArrayList<Book> getUnavailableBooks() {
+        ArrayList<Book> result = new ArrayList<>();
 
         for (Book aBook : this.getBooks()) {
             if (aBook.getPerson() != null) {

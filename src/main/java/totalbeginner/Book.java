@@ -9,22 +9,22 @@ package totalbeginner;
 public class Book {
     String title;
     String author;
-    Person person;
+    private Person person;
 
     public Book(String string) {
         this.title = string;
         this.author = "unknown author";
     }
 
-    public String getAuthor() {
+    private String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getTitle() {
+    private String getTitle() {
         return title;
     }
 

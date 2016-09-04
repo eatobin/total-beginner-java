@@ -26,11 +26,11 @@ public class Person {
         this.name = anyName;
     }
 
-    public int getMaximumBooks() {
+    int getMaximumBooks() {
         return maximumBooks;
     }
 
-    public void setMaximumBooks(int maximumBooks) {
+    void setMaximumBooks(int maximumBooks) {
         this.maximumBooks = maximumBooks;
     }
 
