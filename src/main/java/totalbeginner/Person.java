@@ -1,11 +1,5 @@
 package totalbeginner;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eric
- * Date: Jun 9, 2010
- * Time: 3:34:49 PM
- */
 public class Person {
     // Fields
     private String name; // Name of Person
