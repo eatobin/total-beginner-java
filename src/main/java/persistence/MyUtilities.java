@@ -5,9 +5,9 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import java.io.*;
 
-public class MyUtilities {
-    public static boolean saveStringToFile(String fileName,
-                                           String saveString) {
+class MyUtilities {
+    static boolean saveStringToFile(String fileName,
+                                    String saveString) {
         boolean saved = false;
         BufferedWriter bw;
 
@@ -29,7 +29,7 @@ public class MyUtilities {
         return saved;
     }
 
-    public static String getStringFromFile(String fileName) {
+    static String getStringFromFile(String fileName) {
         BufferedReader br;
         StringBuilder sb = new StringBuilder();
 
@@ -54,7 +54,7 @@ public class MyUtilities {
         return sb.toString();
     }
 
-    public static String convertToXML(MyLibrary ml) {
+    static String convertToXML(MyLibrary ml) {
         XStream xstream = new XStream(new DomDriver());
         xstream.setMode(XStream.ID_REFERENCES);
         xstream.alias("Person", Person.class);
@@ -63,7 +63,7 @@ public class MyUtilities {
         return xstream.toXML(ml);
     }
 
-    public static MyLibrary convertFromXML(String XMLString) {
+    static MyLibrary convertFromXML(String XMLString) {
         MyLibrary ml = null;
         XStream xstream = new XStream(new DomDriver());
         xstream.setMode(XStream.ID_REFERENCES);
@@ -78,15 +78,15 @@ public class MyUtilities {
         return ml;
     }
 
-    public static boolean saveMyLibraryToXMLFile(String fileName, MyLibrary ml) {
+    static boolean saveMyLibraryToXMLFile(String fileName, MyLibrary ml) {
         return saveStringToFile(fileName, convertToXML(ml));
     }
 
-    public static MyLibrary getMyLibraryFromXMLFile(String fileName) {
+    static MyLibrary getMyLibraryFromXMLFile(String fileName) {
         return convertFromXML(getStringFromFile(fileName));
     }
 
-    public static boolean saveMyLibraryToSerialFile(String fileName, MyLibrary ml) {
+    static boolean saveMyLibraryToSerialFile(String fileName, MyLibrary ml) {
         boolean saved = false;
         try {
             ObjectOutputStream oos = new ObjectOutputStream(
@@ -109,7 +109,7 @@ public class MyUtilities {
         return saved;
     }
 
-    public static MyLibrary getMyLibraryFromSerialFile(String fileName) {
+    static MyLibrary getMyLibraryFromSerialFile(String fileName) {
         MyLibrary ml = null;
 
         try {

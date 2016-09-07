@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Book implements Serializable {
     String title;
     String author;
-    Person person;
+    private Person person;
     private static final long serialVersionUID = -1722088991362527290L;
 
     public Book(String string) {
@@ -13,15 +13,15 @@ public class Book implements Serializable {
         this.author = "unknown author";
     }
 
-    public String getAuthor() {
+    private String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getTitle() {
+    private String getTitle() {
         return title;
     }
 
