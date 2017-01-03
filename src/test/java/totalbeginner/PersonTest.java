@@ -2,12 +2,6 @@ package totalbeginner;
 
 import junit.framework.TestCase;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eric
- * Date: Jun 9, 2010
- * Time: 4:37:39 PM
- */
 public class PersonTest extends TestCase {
     public void testPerson() {
         Person p1 = new Person();
