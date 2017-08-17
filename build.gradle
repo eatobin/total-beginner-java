@@ -22,7 +22,8 @@ repositories {
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile group: 'com.google.guava', name: 'guava', version: '23.0'
-    compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.10'
+    // This is the latest version that doesn't give security warnings!
+    compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.3.1'
 
     // Use JUnit test framework
     testCompile group: 'junit', name: 'junit', version: '4.12'
