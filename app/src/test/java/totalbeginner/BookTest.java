@@ -1,4 +1,4 @@
-package persistence;
+package totalbeginner;
 
 import junit.framework.TestCase;
 
@@ -36,11 +36,9 @@ public class BookTest extends TestCase {
         Person p2 = new Person();
         p2.setName("Elvis");
 
-        assertEquals("War And Peace by unknown author; Available",
-                b2.toString());
+        assertEquals("War And Peace by unknown author; Available", b2.toString());
 
         b2.setPerson(p2);
-        assertEquals("War And Peace by unknown author; Checked out to Elvis",
-                b2.toString());
+        assertEquals("War And Peace by unknown author; Checked out to Elvis", b2.toString());
     }
 }

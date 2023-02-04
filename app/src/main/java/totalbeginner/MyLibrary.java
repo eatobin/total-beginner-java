@@ -40,8 +40,7 @@ public class MyLibrary {
     boolean checkOut(Book b1, Person p1) {
         int booksOut = this.getBooksForPerson(p1).size();
 
-        if ((b1.getPerson() == null) &&
-                (booksOut < p1.getMaximumBooks())) {
+        if ((b1.getPerson() == null) && (booksOut < p1.getMaximumBooks())) {
             b1.setPerson(p1);
             return true;
         } else {
@@ -62,9 +61,7 @@ public class MyLibrary {
         ArrayList<Book> result = new ArrayList<>();
 
         for (Book aBook : this.getBooks()) {
-            if ((aBook.getPerson() != null) &&
-                    (aBook.getPerson().getName()
-                            .equals(p1.getName()))) {
+            if ((aBook.getPerson() != null) && (aBook.getPerson().getName().equals(p1.getName()))) {
                 result.add(aBook);
             }
         }
@@ -97,9 +94,7 @@ public class MyLibrary {
     }
 
     public String toString() {
-        return this.getName() + ": " +
-                this.getBooks().size() + " books; " +
-                this.getPeople().size() + " people.";
+        return this.getName() + ": " + this.getBooks().size() + " books; " + this.getPeople().size() + " people.";
     }
 
     public static void main(String[] args) {
@@ -134,8 +129,7 @@ public class MyLibrary {
     }
 
     private void printStatus() {
-        StringBuilder sb = new StringBuilder("--- Status Report of MyLibrary ---\n" +
-                this.toString() + "\n");
+        StringBuilder sb = new StringBuilder("--- Status Report of MyLibrary ---\n" + this + "\n");
 
         for (Book thisBook : this.getBooks()) {
             sb.append(thisBook).append("\n");
@@ -150,6 +144,6 @@ public class MyLibrary {
         sb.append("Books available: ").append(this.getAvailableBooks().size()).append("\n");
 
         sb.append("--- End of Status Report ---");
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
