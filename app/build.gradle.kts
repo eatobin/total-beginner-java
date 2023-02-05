@@ -8,7 +8,7 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
+    application
 }
 
 repositories {
@@ -18,14 +18,13 @@ repositories {
 
 dependencies {
     // Use JUnit test framework.
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation("junit:junit:4.13.2")
 
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:31.1-jre'
-
+    implementation("com.google.guava:guava:31.1-jre")
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'totalbeginner.MyLibrary'
+    mainClass.set("totalbeginner.MyLibrary")
 }
